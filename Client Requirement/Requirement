@@ -1,1 +1,18 @@
+1. Client Requirements Analysis
+Client: Motswaledi Civil & Structural Engineers (Mahikeng) — an engineering consultancy.
 
+
+Department	Function	Traffic profile
+Management/Admin	Firm leadership, HR, finance	Light, sensitive (needs isolation from general staff)
+Structural Engineering	Design calcs, structural CAD	Moderate-heavy, large file transfers
+Civil Engineering	Site/civil design work	Moderate-heavy
+Drafting & CAD	Drawing production, plotting	Heavy (large drawing files, plotters)
+Site Survey / Field	Surveyors, often mobile	Wireless access needed
+Reception	Client-facing, visitor point	Light
+Servers	File server (drawings), print server	Central, needs highest protection
+Legacy Devices	Old plotter/scanner/terminal without modern security	Must be isolated per the brief's constraint
+
+Design drivers.
+•	Legacy devices → isolated VLAN with tightened ACLs, since they can't defend themselves
+•	CR1 (8 extra staff, no redesign) → whichever department absorbs this needs a subnet sized with headroom from day one — I've put this on Structural Engineering below
+•	Assigned challenge: Default Routing (edge/ISP path) → the edge router needs a static default route out, and the ISP side needs a static route back to your whole 172.30.40.0/23 block (no dynamic routing protocol needed for this)
