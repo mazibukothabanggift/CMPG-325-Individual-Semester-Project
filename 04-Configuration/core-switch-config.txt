@@ -1,0 +1,186 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2907
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\froman\fcharset0 Times-Roman;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;}
+{\*\expandedcolortbl;;\cssrgb\c0\c0\c0;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs24 \cf0 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Core-Switch>enable\
+Core-Switch#show access-lists\
+Extended IP access list 100\
+    10 permit icmp 172.30.40.200 0.0.0.7 host 172.30.40.201\
+    20 permit ip 172.30.40.200 0.0.0.7 host 172.30.40.194 (4 match(es))\
+    30 deny ip 172.30.40.200 0.0.0.7 172.30.40.0 0.0.1.255 (4 match(es))\
+\
+Core-Switch#show running-config\
+Building configuration...\
+\
+Current configuration : 2429 bytes\
+!\
+version 12.2(37)SE1\
+no service timestamps log datetime msec\
+no service timestamps debug datetime msec\
+no service password-encryption\
+!\
+hostname Core-Switch\
+!\
+!\
+no profinet\
+!\
+!\
+!\
+!\
+!\
+ip routing\
+!\
+!\
+!\
+!\
+!\
+!\
+!\
+!\
+!\
+!\
+!\
+!\
+!\
+!\
+!\
+spanning-tree mode pvst\
+!\
+!\
+!\
+!\
+!\
+!\
+interface FastEthernet0/1\
+ switchport trunk native vlan 99\
+ switchport trunk encapsulation dot1q\
+ switchport mode trunk\
+!\
+interface FastEthernet0/2\
+ switchport trunk native vlan 99\
+ switchport trunk encapsulation dot1q\
+ switchport mode trunk\
+!\
+interface FastEthernet0/3\
+ no switchport\
+ ip address 172.30.40.222 255.255.255.252\
+ duplex auto\
+ speed auto\
+!\
+interface FastEthernet0/4\
+ switchport trunk native vlan 99\
+ switchport trunk encapsulation dot1q\
+ switchport mode trunk\
+!\
+interface FastEthernet0/5\
+!\
+interface FastEthernet0/6\
+!\
+interface FastEthernet0/7\
+!\
+interface FastEthernet0/8\
+!\
+interface FastEthernet0/9\
+!\
+interface FastEthernet0/10\
+!\
+interface FastEthernet0/11\
+!\
+interface FastEthernet0/12\
+!\
+interface FastEthernet0/13\
+!\
+interface FastEthernet0/14\
+!\
+interface FastEthernet0/15\
+!\
+interface FastEthernet0/16\
+!\
+interface FastEthernet0/17\
+!\
+interface FastEthernet0/18\
+!\
+interface FastEthernet0/19\
+!\
+interface FastEthernet0/20\
+!\
+interface FastEthernet0/21\
+!\
+interface FastEthernet0/22\
+!\
+interface FastEthernet0/23\
+!\
+interface FastEthernet0/24\
+!\
+interface GigabitEthernet0/1\
+ shutdown\
+!\
+interface GigabitEthernet0/2\
+!\
+interface Vlan1\
+ no ip address\
+ shutdown\
+!\
+interface Vlan10\
+ mac-address 0000.0cee.7a01\
+ ip address 172.30.40.129 255.255.255.240\
+!\
+interface Vlan20\
+ mac-address 0000.0cee.7a02\
+ ip address 172.30.40.1 255.255.255.192\
+!\
+interface Vlan30\
+ mac-address 0000.0cee.7a03\
+ ip address 172.30.40.65 255.255.255.224\
+!\
+interface Vlan40\
+ mac-address 0000.0cee.7a04\
+ ip address 172.30.40.97 255.255.255.224\
+!\
+interface Vlan70\
+ mac-address 0000.0cee.7a05\
+ ip address 172.30.40.193 255.255.255.248\
+!\
+interface Vlan80\
+ mac-address 0000.0cee.7a06\
+ ip address 172.30.40.201 255.255.255.248\
+ ip access-group 100 in\
+!\
+interface Vlan99\
+ mac-address 0000.0cee.7a07\
+ ip address 172.30.40.209 255.255.255.248\
+!\
+ip classless\
+ip route 0.0.0.0 0.0.0.0 172.30.40.221 \
+!\
+ip flow-export version 9\
+!\
+!\
+access-list 100 permit icmp 172.30.40.200 0.0.0.7 host 172.30.40.201\
+access-list 100 permit ip 172.30.40.200 0.0.0.7 host 172.30.40.194\
+access-list 100 deny ip 172.30.40.200 0.0.0.7 172.30.40.0 0.0.1.255\
+!\
+!\
+!\
+!\
+!\
+!\
+line con 0\
+!\
+line aux 0\
+!\
+line vty 0 4\
+ login\
+!\
+!\
+!\
+!\
+end\
+\
+\
+}
